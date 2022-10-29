@@ -1,4 +1,5 @@
 
 bin/**
 obj/**
-
+consoleApp/obj/**
+consoleApp/bin/**

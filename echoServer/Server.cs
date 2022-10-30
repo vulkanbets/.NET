@@ -2,7 +2,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 
-public class Server
+internal class Server
 {
     internal static void RunServer()
     {
@@ -46,9 +46,12 @@ public class Server
                     if (data.IndexOf("<EOF>") > -1)
                         break;
                 }
-    
-                Console.WriteLine("Text received -> {0} ", data);
-                byte[] message = Encoding.ASCII.GetBytes("Test Server");
+
+                // Remove the last (5) characters from string to account for <EOF>
+                data = data.Substring(0, data.Length - 5);
+                // Print to Client the string (data) that was sent
+                Console.WriteLine("Text received  ->  \"{0}\" ", data);
+                byte[] message = Encoding.ASCII.GetBytes("Message of the Day!!");
     
                 // Send a message to Client using Send() method
                 clientSocket.Send(message);

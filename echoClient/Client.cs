@@ -2,7 +2,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 
-public class Client
+internal class Client
 {
     internal static void RunClient()
     {
@@ -10,7 +10,7 @@ public class Client
         {
             // Establish the remote endpoint for the socket.
             // This example uses port 11111 on the local computer.
-            IPHostEntry ipHost = Dns.GetHostEntry(Dns.GetHostName());
+            IPHostEntry ipHost = Dns.GetHostEntry( Dns.GetHostName() );
             IPAddress ipAddr = ipHost.AddressList[1];
             IPEndPoint localEndPoint = new IPEndPoint(ipAddr, 5575);
     
@@ -25,7 +25,7 @@ public class Client
                 Console.WriteLine("Socket connected to -> {0} ", sender?.RemoteEndPoint?.ToString());
     
                 // Creation of message that we will send to Server
-                byte[] messageSent = Encoding.ASCII.GetBytes("Test Client<EOF>");
+                byte[] messageSent = Encoding.ASCII.GetBytes("My own custom message... Hello From Client!<EOF>");
 
                 // Null check
                 if(sender != null)
@@ -38,7 +38,7 @@ public class Client
                     // We receive the message using the method Receive(). This method returns
                     // number of bytes received, that we'll use to convert them to string
                     int byteRecv = sender.Receive(messageReceived);
-                    Console.WriteLine("Message from Server -> {0}", Encoding.ASCII.GetString(messageReceived, 0, byteRecv));
+                    Console.WriteLine("Message from Server  -->  {0}", Encoding.ASCII.GetString(messageReceived, 0, byteRecv));
         
                     // Close Socket using the method Close()
                     sender.Shutdown(SocketShutdown.Both);

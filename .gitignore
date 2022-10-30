@@ -1,5 +1,10 @@
 
 bin/**
 obj/**
+
 consoleApp/obj/**
 consoleApp/bin/**
+
+echoServer/obj/**
+echoServer/bin/**
+

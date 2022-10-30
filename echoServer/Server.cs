@@ -4,12 +4,14 @@ using System.Text;
 
 public class Server
 {
-    internal static void ExecuteServer()
+    internal static void RunServer()
     {
         // Establish the local endpoint for the socket. Dns.GetHostName returns the name of the host running the application.
         IPHostEntry ipHost = Dns.GetHostEntry( Dns.GetHostName() );
-        IPAddress ipAddr = ipHost.AddressList[0];
-        IPEndPoint localEndPoint = new IPEndPoint(ipAddr, 11111);
+
+        // Set it to use 192.168.1.XXX address (Local To Router) by using Array @ [1] and not [0]
+        IPAddress ipAddr = ipHost.AddressList[1];
+        IPEndPoint localEndPoint = new IPEndPoint(ipAddr, 5575);
     
         // Creation TCP/IP Socket using Socket Class Constructor
         Socket SocketListener = new Socket(ipAddr.AddressFamily, SocketType.Stream, ProtocolType.Tcp);

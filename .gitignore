@@ -10,3 +10,6 @@ consoleApp/bin/**
 echoServer/obj/**
 echoServer/bin/**
 
+echoClient/obj/**
+echoClient/bin/**
+

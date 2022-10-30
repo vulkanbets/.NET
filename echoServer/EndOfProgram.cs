@@ -1,6 +1,6 @@
 
 
-namespace ProgramEnd
+namespace ProgramEndInclude
 {
     public class EndOfProgram
     {

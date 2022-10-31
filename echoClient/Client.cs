@@ -25,7 +25,7 @@ internal class Client
                 Console.WriteLine("Socket connected to -> {0} ", sender?.RemoteEndPoint?.ToString());
     
                 // Creation of message that we will send to Server
-                byte[] messageSent = Encoding.ASCII.GetBytes("My own custom message... Hello From Client!<EOF>");
+                byte[] messageSent = Encoding.ASCII.GetBytes("Be Strong\n But Not Rude\n\nBe Kind But\n Not Weak\n\nBe Humble\n But Not Timid<|EOF|>");
 
                 // Null check
                 if(sender != null)
@@ -38,7 +38,7 @@ internal class Client
                     // We receive the message using the method Receive(). This method returns
                     // number of bytes received, that we'll use to convert them to string
                     int byteRecv = sender.Receive(messageReceived);
-                    Console.WriteLine("Message from Server  -->  {0}", Encoding.ASCII.GetString(messageReceived, 0, byteRecv));
+                    Console.WriteLine("Message from Server  -->  \n\"{0}\"", Encoding.ASCII.GetString(messageReceived, 0, byteRecv));
         
                     // Close Socket using the method Close()
                     sender.Shutdown(SocketShutdown.Both);

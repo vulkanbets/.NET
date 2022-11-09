@@ -17,6 +17,8 @@ dotnet new Console -o <Name Of Console App>
 dotnet build
 ~~~
 - Instructions to Run Console App
+<br>
+<br>
   - cd into App directory
 ~~~bash
 dotnet run <First Command Line Argument> <Second Command Line Argument>
